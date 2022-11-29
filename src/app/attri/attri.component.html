@@ -1,0 +1,19 @@
+<div [ngStyle]="{'color':colorVal, 'background-color':'#ddd'}">
+    learning angular 8
+</div>
+
+<h4>Ng Class</h4>
+
+<ul *ngFor="let person of people">
+    <li [ngClass]="{
+        'text-success': person.country === 'UK',
+        'text-primary': person.country === 'USA',
+        'text-danger': person.country === 'HK'
+    }">
+ 
+     {{person.name}} ({{person.country}})
+    </li>
+</ul>
+
+<p>Normal para</p>
+<p appCustdir>Customer para</p>

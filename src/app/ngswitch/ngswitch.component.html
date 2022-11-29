@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <select class="from-control" (change)="getProductValue($event)">
+                <option value="Default">Selected Product</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Mobile">Mobile</option>
+                <option value="Tv">Tv</option>
+                <option value="WashingMachine">WashingMachine</option>
+            </select>
+        </div>
+        <div class="col-md-12" [ngSwitch]="selectedProduct">
+            <h2 class="text-success" *ngSwitchDefault>Please select product></h2>
+            <h2 class="text-success" *ngSwitchCase="'Laptop'">laptop</h2>
+            <h2 class="text-success" *ngSwitchCase="'Mobile'">Mobile</h2>
+            <h2 class="text-success" *ngSwitchCase="'Tv'">Tv</h2>
+            <h2 class="text-success" *ngSwitchCase="'WashingMachine'">WashingMachine</h2>
+
+
+        </div>
+    </div>
+</div>
