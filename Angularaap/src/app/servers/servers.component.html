@@ -1,0 +1,18 @@
+
+
+<label>{{name}}</label>
+
+<p>Server with Id{{serverId}} is {{getServerStatus()}}</p>
+
+
+<button [disabled]="!allowNewServer" (click) = "onCreateServer()"class="btn btn-primary">Add server</button>
+
+<div>{{serverCreationStatus}}</div>
+
+<!--<img [src] ="ImgUrl">-->
+
+<div> Two Way Data Banding </div>
+
+<div> <input type="text" [(ngModel)]="serverName" ></div>
+
+{{serverName}}

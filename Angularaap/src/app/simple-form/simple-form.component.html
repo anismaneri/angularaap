@@ -1,0 +1,52 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 text-left rounded shadow py-5">
+      <form (ngSubmit)="OnSubmit(myForm)" #myForm="ngForm">
+        <div ngModelGroup="userDetail" #userDetail="ngModelGroup">
+          <div class="form-group">
+            <label for="username">User Name</label>
+            <input type="text" class="form-control" name="user" id="username" placeholder="Enter user name"
+              [(ngModel)]="username" required>
+            <small *ngIf="username">user name is:{{username}}</small>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" email name="email" #email="ngModel" id="email"
+              placeholder="Enter email" ngModel required>
+            <small class="text-danger" *ngIf="!email.valid && email.touched">Enter Valid Email</small>
+
+          </div>
+          <small *ngIf="!userDetail.valid && userDetail.touched">Please Enter valid Detail</small>
+        </div>
+        <div class="form-group">
+          <label for="course">Select Course</label>
+          <select class="form-control" name="course" id="course" [ngModel]="defaultValue">
+            <option value="Angular">Angular</option>
+            <option value="HTML">HTML</option>
+            <option value="CSS">CSS</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <div *ngFor="let gender of genders" class="custom-control custom-radio">
+            <input type="radio" id="{{gender.id}}" name="gender" value="{{gender.value}}" [ngModel]="defaultGender" class="custom-control-input">
+            <label for="{{gender.id}}" class="custom-control-input">{{gender.value}}</label>
+          </div>
+        </div>
+        <div class="form-group">
+<input type="date" name="" id="">
+        </div>
+        <button type="submit"[disabled]="!myForm.valid" class="btn btn-primary">Submit</button>
+        <div class="row justify-content-center mt-2" *ngIf="submitted">
+          <div class="col-md-6 rounded shadow py-4">
+            <h2> Form data </h2>
+            <p> Username: <strong>{{employee.username}}</strong></p>
+            <p> Email: <strong>{{employee.email}}</strong></p>
+            <p> Course: <strong>{{employee.coursees}}</strong></p>
+            <p>Gender: <strong>{{employee.gender}}</strong></p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
